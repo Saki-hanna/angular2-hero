@@ -4,7 +4,7 @@ import { HEROES } from "app/shared/mock-heroes";
 import { HeroService } from 'app/shared/hero.service';
 
 @Component({
-    selector: 'my-heroes',
+    selector: 'my-all-heroes',
     template: `
 <h2>My Heroes</h2>
 <ul class="toh-heroes">
@@ -71,7 +71,7 @@ import { HeroService } from 'app/shared/hero.service';
 
 
 })
-export class HeroesComponent implements OnInit{
+export class AllHeroesComponent implements OnInit{
 
     heroes:Hero[] = HEROES;
     selectedHero:Hero;
