@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from "app/shared/hero";
 import { HEROES } from "app/shared/mock-heroes";
 import { HeroService } from 'app/shared/hero.service';
+import { Router } from "@angular/router";
 
 @Component({
-    module: module.id,
+    moduleId: module.id,
     selector: 'my-all-heroes',
-    templateUrl: 'app/heroes/all-heroes/all-heroes.component.html',
+    templateUrl: 'all-heroes.component.html',
     styleUrls: [ 'heroes.component.css' ]
 })
 export class AllHeroesComponent implements OnInit{
@@ -14,7 +15,7 @@ export class AllHeroesComponent implements OnInit{
     heroes:Hero[] = HEROES;
     selectedHero:Hero;
 
-    constructor(private heroService: HeroService) { }
+    constructor(private heroService: HeroService, private router: Router) { }
 
     /**
      * A l'initialisation du component appeler la méthode getHeroes
@@ -49,6 +50,12 @@ export class AllHeroesComponent implements OnInit{
 
     }
 
+    /**
+     * Retoune une page en arrière via l'historique du navigateur
+     */
+    gotoDetail(): void {
+        this.router.navigate(['/detail', this.selectedHero.id]);
+    }
 
 
 }
