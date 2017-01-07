@@ -21,9 +21,9 @@ export class HeroDetailComponent implements OnInit{
 
     constructor(private heroService:HeroService,
                 private route:ActivatedRoute,
-                private location:Location){
+                private location:Location
 
-    }
+    ){}
 
     // + converti en nombre
     ngOnInit():void {

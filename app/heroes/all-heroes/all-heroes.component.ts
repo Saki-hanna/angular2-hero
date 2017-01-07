@@ -15,7 +15,9 @@ export class AllHeroesComponent implements OnInit{
     heroes:Hero[] = HEROES;
     selectedHero:Hero;
 
-    constructor(private heroService: HeroService, private router: Router) { }
+    constructor(private heroService: HeroService, private router: Router) {
+
+    }
 
     /**
      * A l'initialisation du component appeler la méthode getHeroes
