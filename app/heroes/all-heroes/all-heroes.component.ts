@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from "app/shared/hero";
-import { HEROES } from "app/shared/mock-heroes";
-import { HeroService } from 'app/shared/hero.service';
+import { Hero } from "./../../shared/hero";
+import { HEROES } from "./../../shared/mock-heroes";
+import { HeroService } from './../../shared/hero.service';
 import { Router } from "@angular/router";
 
 @Component({
@@ -46,14 +46,14 @@ export class AllHeroesComponent implements OnInit{
      * @return void
      */
     getHeroes(): void {
-        this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
+        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
 
     }
 
     /**
      * Retoune une page en arrière via l'historique du navigateur
      */
-    gotoDetail(): void {
+    goToDetail(): void {
         this.router.navigate(['/detail', this.selectedHero.id]);
     }
 

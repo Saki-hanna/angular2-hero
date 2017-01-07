@@ -4,9 +4,8 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { HeroDetailComponent } from "./heroes/hero-detail/hero-detail.component";
 import { NgModule } from "@angular/core";
 
-const routes: Routes = [
+const ROUTES: Routes = [
     {
-        //Redirection d'une route à une autre : par default
         path: '',
         redirectTo: '/dashboard',
         pathMatch: 'full'
@@ -19,15 +18,16 @@ const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent
-    },{
+    },
+    {
         path: 'detail/:id',
         component: HeroDetailComponent
     }
 ];
 
 @NgModule({
-imports: [ RouterModule.forRoot(routes) ],
-exports: [ RouterModule ]
+    imports: [ RouterModule.forRoot(ROUTES) ],
+    exports: [ RouterModule ]
 })
 
 export class AppRoutingModule {}
