@@ -17,10 +17,9 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 //Services
 import { HeroService } from "./shared/hero.service";
 import { AppRoutingModule } from "./app-routing.module";
+import { HeroSearchComponent } from "./search/hero-search.component";
 
-
-
-
+import './rxjs-extensions';
 
 @NgModule({
     imports: [
@@ -38,7 +37,8 @@ import { AppRoutingModule } from "./app-routing.module";
         AppComponent,
         AllHeroesComponent,
         HeroDetailComponent,
-        DashboardComponent
+        DashboardComponent,
+        HeroSearchComponent
     ],
     bootstrap: [
         AppComponent

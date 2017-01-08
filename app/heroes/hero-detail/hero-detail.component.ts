@@ -5,7 +5,6 @@ import { Location }                 from '@angular/common';
 import { Hero } from "./../../shared/hero";
 import { HeroService } from './../../shared/hero.service'
 
-import 'rxjs/add/operator/switchMap';
 
 @Component({
     moduleId: module.id,

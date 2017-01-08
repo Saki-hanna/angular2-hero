@@ -30,6 +30,17 @@ export class AllHeroesComponent implements OnInit{
     }
 
     /**
+     * Obtient tout les heroes via lheroServices
+     *
+     * @return void
+     */
+    getHeroes(): void {
+        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+
+    }
+
+
+    /**
      * A la séléction d'un héro, change l'objet hero.
      * Methode binding
      *
@@ -42,21 +53,35 @@ export class AllHeroesComponent implements OnInit{
     }
 
     /**
-     * Obtient tout les heroes via lheroServices
-     *
-     * @return void
-     */
-    getHeroes(): void {
-        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
-
-    }
-
-    /**
      * Retoune une page en arrière via l'historique du navigateur
      */
     goToDetail(): void {
         this.router.navigate(['/detail', this.selectedHero.id]);
     }
 
+    /**
+     * Ajoute un héros
+     *
+     * @param name
+     */
+    addHero(name:string):void{
+        //trim supprime les espaces
+        name = name.trim();
+        if (!name) { return; }
+        this.heroService.create(name)
+            .then(hero => {
+                this.heroes.push(hero);
+                this.selectedHero = null;
+            });
+    }
+
+    deleteHero(hero: Hero): void {
+        this.heroService
+            .delete(hero.id)
+            .then(() => {
+                this.heroes = this.heroes.filter(h => h !== hero);
+                if (this.selectedHero === hero) { this.selectedHero = null; }
+            });
+    }
 
 }
